@@ -1,7 +1,7 @@
 'use strict'
 
 const   My_Data = require('./my-data.js'),
-        Clock = require('./Clock-ES5.js')
+        Clock = require('./Clock-ES' + '6'/*'5'*/ + '.js')
 
 let cucu = new Clock()
 
