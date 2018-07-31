@@ -1,0 +1,25 @@
+{
+  "name": "uploader",
+  "version": "0.0.1",
+  "description": "App to upload files with Node to server.",
+  "main": "uploader.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PipeOspina/Learning-NodeJS/tree/master/02ModulosNPM/01SubirArchivo"
+  },
+  "keywords": [
+    "upload",
+    "files",
+    "node.js",
+    "formidable",
+    "fs-extra"
+  ],
+  "author": "Felipe Ospina @PipeOspina @PipeOxpina",
+  "license": "MIT",
+  "dependencies": {
+    "formidable": "^1.2.1"
+  }
+}
