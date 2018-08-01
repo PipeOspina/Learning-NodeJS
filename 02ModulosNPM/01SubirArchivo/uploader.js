@@ -1,3 +1,5 @@
+//Remember to use "npm install" to install de node_modules to the project :)
+
 'use strict';
 
 const http = require('http').createServer(serverUpload);
