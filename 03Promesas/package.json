@@ -5,7 +5,7 @@
   "main": "callback.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node promises-q.js"
+    "start": "node promises-es6.js"
   },
   "repository": {
     "type": "git",
