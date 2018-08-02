@@ -1,0 +1,23 @@
+{
+  "name": "basico-express",
+  "version": "0.0.1",
+  "description": "Ejemplos basicos con el framework express.js",
+  "main": "00-Hello-Express.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node 00-Hello-Express.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PipeOspina/Learning-NodeJS/tree/master/04Express/00Basico"
+  },
+  "keywords": [
+    "express",
+    "nodejs"
+  ],
+  "author": "Felipe Ospina @PipeOspina @PipeOxpina",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
