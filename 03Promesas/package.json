@@ -17,5 +17,8 @@
     "q"
   ],
   "author": "Felipe Ospina @PipeOxpina @PipeOspina",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "q": "^1.5.1"
+  }
 }
