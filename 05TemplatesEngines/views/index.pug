@@ -1,0 +1,54 @@
+extends layout
+
+block content
+  article#pug.container
+    h1
+      a(href=link, target='_blank')= title
+    p= description
+  article.container
+    h2 Estructura Básica de Pug
+    p Este archivo HTML es generado con el motor de plantillas Pug
+    p
+      |Para concatenar contenido
+      |en varias líneas
+      |se usa el pipe '|'
+    include logo
+    //-Interpolación
+    p.
+      Si te gusta la forma en que Pug genera código HTML
+      puedes leer la documentación del #[a(href="https://pugjs.org/language/attributes.html", target="_blank") API], la referencia del #[a(href="https://pugjs.org/api/reference.html", target="_blank") lenguaje] y de la #[a(href="https://pugjs.org/api/reference.html", target="_blank") documentación.]
+    br
+    button#presioname.boton Presioname
+    script.
+      document.querySelector('#presioname').onclick = () => {
+        alert('Has presionado el botón desde Pug con JavaScript');
+      }
+    -var nombre = "Pug";
+    h1 Hola #{nombre}
+    -var fecha = new Date();
+    -var hora = fecha.getHours();
+    -var minutos = fecha.getMinutes();
+    if(hora < 12)
+      p La hora #{hora} es Antes del Meridiano (am)
+    else
+      p La hora #{hora} es Pasado del Meridiano (pm)
+    -nombre = "otro nombre"
+    h1= nombre
+    -var estaciones = ['Primavera', 'Verano', 'Otoño', 'Invierno'];
+    h2 Estaciones del Año
+    ol
+      each estacion in estaciones
+        li= estacion
+  article.container
+    //- Los mixins son funciones en Pug
+    mixin mesesEstacionesMexico(estacion, meses)
+      .item
+        h3= estacion
+        ul
+          for mes in meses
+            li= mes
+    h2 Estaciones del Año en Mexico
+    +mesesEstacionesMexico(estaciones[0], ['Abril', 'Mayo', ['Junio']])
+    +mesesEstacionesMexico(estaciones[1], ['Julio', 'Agosto', ['Septiembre']])
+    +mesesEstacionesMexico(estaciones[2], ['Octubre', 'Noviembre', ['Diciembre']])
+    +mesesEstacionesMexico(estaciones[3], ['Enero', 'Febrero', ['Marzo']])
