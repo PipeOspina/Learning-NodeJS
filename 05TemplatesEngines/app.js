@@ -15,8 +15,8 @@ const app = express();
 
 app
   .set('views', viewDir)
-  //.set('view engine', 'pug')
-  .set('view engine', 'ejs')
+  .set('view engine', 'pug')
+  //.set('view engine', 'ejs')
   .set('port', port)
 
   .use(favicon(faviconURL))

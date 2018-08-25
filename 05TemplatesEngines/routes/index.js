@@ -6,7 +6,8 @@ const router = express.Router();
 router
   .get('/', index)
   .get('/pug', pug)
-  .get('/ejs', ejs);
+  .get('/ejs', ejs)
+  .use(error404);
 
 function index(req, res) {
   res.end(`<h1>Terminamos la configuraci&oacute;n de nuestra primer App en Express</h1>`);
@@ -34,6 +35,20 @@ function ejs(req, res) {
     ]
   };
   res.render('index', locals);
+}
+
+function error404(req, res, next) {
+  let error = new Error();
+  error.status = 404;
+  let locals = {
+    title: 'Error 404',
+    description: 'Recurso no encontrado :(',
+    error: error
+  };
+
+  res.render('error', locals);
+
+  next();
 }
 
 module.exports = router;
