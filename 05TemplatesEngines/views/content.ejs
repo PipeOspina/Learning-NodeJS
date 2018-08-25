@@ -1,0 +1,28 @@
+<article id="ejs" class="container">
+  <h1>
+    <a href="<%=link%>" target="_balnk"><%=title%></a>
+  </h1>
+  <p><%=description%></p>
+</article>
+<br>
+<div id="logo-node"></div>
+<br>
+<button id="presioname" class="boton">Presioname</button>
+<script>
+  document.querySelector('#presioname').onclick = () => {
+    alert('Has presionado el botón desde EJS con JavaScript');
+  };
+</script>
+<article class="container">
+  <h2>Estaciones del Año en México</h2>
+  <% for(var i = 0; i < seasons.length; i++) {%>
+    <div class="item">
+      <h3><%=seasons[i][0]%></h3>
+      <ol>
+        <% for(var j = 0; j < seasons[i][1].length; j++) {%>
+          <li><%=seasons[i][1][j]%></li>
+        <%}%>
+      </ol>
+    </div>
+  <%}%>
+</article>
