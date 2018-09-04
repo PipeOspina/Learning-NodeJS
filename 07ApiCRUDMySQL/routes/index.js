@@ -16,6 +16,10 @@ function index(req, res) {
   });
 }
 
+function agregar(req, res, next) {
+  res.render('add-movie', {title: 'Agregar Pelicula'});
+}
+
 function error404(req, res, next) {
   let error = new Error();
   error.status = 404;
@@ -33,6 +37,8 @@ function error404(req, res, next) {
 router
   .use(movies)
   .get('/', index)
+  .get('/agregar', agregar)
+  .post('/add')
   .use(error404);
 
 module.exports = router;

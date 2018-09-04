@@ -1,6 +1,6 @@
 html { background-color: #1D1D1D; }
 
-A, h1, label { color: #80BD01; }
+A, h1, h2, label { color: #80BD01; }
 
 a:hover { opacity: .75; }
 
@@ -33,11 +33,9 @@ a:hover { opacity: .75; }
 
 .table tr:nth-child(even) { background-color: #CCC; }
 
-.table tr:nth-child(even):hover { background-color: rgb(180, 180, 180); }
-
 .table tr:nth-child(odd):not(:first-child) { background-color: #EEE; }
 
-.table tr:nth-child(odd):not(:first-child):hover { background-color: #FFF }
+.table tr:not(:first-child):hover { opacity: .50; }
 
 .button {
   padding: .5rem 1rem;

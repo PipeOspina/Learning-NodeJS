@@ -1,12 +1,8 @@
 extends layout
 
 block content
-  section.container
-    .item.logo
-    .item
-      h1
-        a(href="/")= title
-    article.item
+    include header.pug
+    article.itemp
       -if(data.length)
         table.table
           tr
@@ -16,7 +12,7 @@ block content
             th Puntuacion
             th Poster
             th(colspan="2")
-              form(method="post" action="/agregar")
+              form(method="get" action="/agregar")
                 input(type="submit", value="Agregar").button.add
           for movie in data
             tr
