@@ -2,6 +2,11 @@ html { background-color: #1D1D1D; }
 
 A, h1, h2, label { color: #80BD01; }
 
+fieldset {
+  padding: 1rem;
+  border: thin solid #80BD01;
+}
+
 a:hover { opacity: .75; }
 
 .logo {
@@ -47,3 +52,7 @@ a:hover { opacity: .75; }
 .button:hover { opacity: .75; }
 
 .add { background: #0B0; }
+
+.edit { background-color: #0871B2; }
+
+.delete { background-color: #D23641; }

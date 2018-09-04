@@ -12,7 +12,7 @@ block content
             th Puntuacion
             th Poster
             th(colspan="2")
-              form(method="get" action="/agregar")
+              form(method="GET" action="/agregar")
                 input(type="submit", value="Agregar").button.add
           for movie in data
             tr
@@ -22,7 +22,16 @@ block content
               th=movie.rating
               th
                 img.poster(src=movie.image, alt=movie.title)
-              th editar
-              th eliminar
+              th
+                form(method="GET" action="/editar/#{movie.movie_id}")
+                input(type="submit", value="Editar").button.edit
+              th
+                form(method="POST" action="/eliminar/#{movie.movie_id}")
+                  input(type="button", value="Eliminar", onclick="eliminar(this)").button.delete
       -else
         p.error No existen peliculas en la Base de Datos.
+      script.
+        function eliminar(input) {
+          let deleteOk = confirm('¿Estas seguro de eliminar la película?');
+          return deleteOk ? input.parentNode.submit() : false;
+        }

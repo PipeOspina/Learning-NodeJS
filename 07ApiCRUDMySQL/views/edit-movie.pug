@@ -3,7 +3,7 @@ extends layout
 block content
     include header.pug
     .item
-      form(method="POST" action="/")
+      form(method="POST" action="/actualizar/#{data[0].movie_id}")
         fieldset
           .container.p1
             label.item.i-b.v-top.ph3.right(for="movie_id") IMDB Id:

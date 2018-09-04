@@ -20,6 +20,44 @@ function agregar(req, res, next) {
   res.render('add-movie', {title: 'Agregar Pelicula'});
 }
 
+function add(req, res, next) {
+  req.getConnection((err, data) => {
+    let movie = {
+      movie_id : req.body.movie_id,
+      title: req.body.title,
+      release_year: req.body.release_year,
+      rating: req.body.rating,
+      image: req.body.image
+    }
+
+    console.log(movie);
+
+    data.query('INSERT INTO movie SET ?', movie, (err, rows) => {
+      return (err) ? res.redirect('/agregar') : res.redirect('/');
+    });
+  });
+}
+
+function editar(req, res, next) {
+  let movieId = req.params.movie_id;
+  console.log(movieId);
+
+  req.getConnection((err, data) => {
+    data.query('SELECT * FROM movie WHERE movie_id =', movieId, (err, rows) => {
+      console.log(err, '---', rows);
+      if(err) throw(err)
+      else {
+        let locals = {
+          title: 'Editar Pelicula',
+          data: rows
+        }
+
+        res.render('edit-movie', locals);
+      }
+    });
+  });
+}
+
 function error404(req, res, next) {
   let error = new Error();
   error.status = 404;
@@ -38,7 +76,8 @@ router
   .use(movies)
   .get('/', index)
   .get('/agregar', agregar)
-  .post('/add')
+  .get('/editar/:movie_id', editar)
+  .post('/', add)
   .use(error404);
 
 module.exports = router;
