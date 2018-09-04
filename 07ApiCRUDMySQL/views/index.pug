@@ -6,3 +6,27 @@ block content
     .item
       h1
         a(href="/")= title
+    article.item
+      -if(data.length)
+        table.table
+          tr
+            th Id
+            th Título
+            th Año
+            th Puntuacion
+            th Poster
+            th(colspan="2")
+              form(method="post" action="/agregar")
+                input(type="submit", value="Agregar").button.add
+          for movie in data
+            tr
+              th=movie.movie_id
+              th=movie.title
+              th=movie.release_year
+              th=movie.rating
+              th
+                img.poster(src=movie.image, alt=movie.title)
+              th editar
+              th eliminar
+      -else
+        p.error No existen peliculas en la Base de Datos.
