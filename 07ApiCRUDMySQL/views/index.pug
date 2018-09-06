@@ -26,7 +26,7 @@ block content
                 form(method="GET" action="/editar/" + movie.movie_id)
                   input(type="submit", value="Editar").button.edit
               th
-                form(method="POST" action="/eliminar/#{movie.movie_id}")
+                form(method="POST" action="/eliminar/" + movie.movie_id)
                   input(type="button", value="Eliminar", onclick="eliminar(this)").button.delete
       -else
         p.error No existen peliculas en la Base de Datos.
