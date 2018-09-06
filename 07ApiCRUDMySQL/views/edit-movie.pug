@@ -1,24 +1,25 @@
 extends layout
 
 block content
-    include header.pug
+    include header
     .item
-      form(method="POST" action="/actualizar/#{data[0].movie_id}")
+      form(method="POST" action="/actualizar/" + data[0].movie_id)
         fieldset
           .container.p1
-            label.item.i-b.v-top.ph3.right(for="movie_id") IMDB Id:
-            input.item.i-b.v-top.ph9#movie_id(type="text", name="movie_id" required)
+            label.item.i-b.v-top.ph3.right(for="id") IMDB Id:
+            input.item.i-b.v-top.ph9#id(type="text", name="id", value=data[0].movie_id, disabled, required)
+            input#movie_id(type="hidden", name="movie_id", value=data[0].movie_id, required)
           .container.p1
             label.item.i-b.v-top.ph3.right(for="title") Título:
-            input.item.i-b.v-top.ph9#title(type="text", name="title" required)
+            input.item.i-b.v-top.ph9#title(type="text", name="title", value=data[0].title, required)
           .container.p1
             label.item.i-b.v-top.ph3.right(for="release_year") Año:
-            input.item.i-b.v-top.ph9#release_year(type="text", name="release_year" required)
+            input.item.i-b.v-top.ph9#release_year(type="text", name="release_year", value=data[0].release_year, required)
           .container.p1
             label.item.i-b.v-top.ph3.right(for="rating") Calificación:
-            input.item.i-b.v-top.ph9#rating(type="text", name="rating" required)
+            input.item.i-b.v-top.ph9#rating(type="text", name="rating", value=data[0].rating, required)
           .container.p1
             label.item.i-b.v-top.ph3.right(for="image") Poster:
-            input.item.i-b.v-top.ph9#image(type="text", name="image" required)
+            input.item.i-b.v-top.ph9#image(type="text", name="image", value=data[0].image, required)
           .container.p1
-            input.item.ph4.mauto.button.add(type="submit", value="Agregar")
+            input.item.ph4.mauto.button.add(type="submit", value="Editar")

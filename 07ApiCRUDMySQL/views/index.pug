@@ -1,7 +1,7 @@
 extends layout
 
 block content
-    include header.pug
+    include header
     article.itemp
       -if(data.length)
         table.table
@@ -23,8 +23,8 @@ block content
               th
                 img.poster(src=movie.image, alt=movie.title)
               th
-                form(method="GET" action="/editar/#{movie.movie_id}")
-                input(type="submit", value="Editar").button.edit
+                form(method="GET" action="/editar/" + movie.movie_id)
+                  input(type="submit", value="Editar").button.edit
               th
                 form(method="POST" action="/eliminar/#{movie.movie_id}")
                   input(type="button", value="Eliminar", onclick="eliminar(this)").button.delete

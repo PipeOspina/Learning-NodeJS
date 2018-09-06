@@ -43,7 +43,7 @@ function editar(req, res, next) {
   console.log(movieId);
 
   req.getConnection((err, data) => {
-    data.query('SELECT * FROM movie WHERE movie_id =', movieId, (err, rows) => {
+    data.query('SELECT * FROM movie WHERE movie_id = ?', movieId, (err, rows) => {
       console.log(err, '---', rows);
       if(err) throw(err)
       else {
